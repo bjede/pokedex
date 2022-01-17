@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
+    
+    <script src="script/script.js"></script>
+    <script src="script/pokemon.js"></script>
+    <script src="script/search.js"></script>
+    <title>Pokedex</title>
+</head>
+<body onload="getPokemons()">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="container-inner">
+                <a class="header__logo-link" href="index.html">
+                    <img class="header__logo" src="./img/logo.png" alt="">
+                </a>
+                <div class="header__search">
+                    <div id="search-container" class="search-container">
+                        <input id="search" type="text" class="search__input" placeholder="Search Pokemon">
+                        <button onclick="toggleMobileSearchInput()" class="search__btn">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="pokemons">
+        <div class="container">
+            <div class="row">
+                <div class="pokemons-container">
+                    <!-- Pokemon cards container -->
+                    <div id="pokemons" class="pokemons-container-inner"></div>
+                    <!-- Update Loader -->
+                    <div id="update-loader" class="update-loader d-none">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <!-- Pokemon Info -->
+                <aside class="pokemon-info">
+                    <div id="pokemon-info" class="pokemon-info-container d-none">
+                        <div id="image-container" class="pokemon-info__image-container">
+                            <img id="pokemon-img" class="pokemon-info__image" src="" alt="">
+                            <div class="pokemon-info__name">
+                                <h2 id="pokemon-name" class="pokemon-name">
+                                    Charmander
+                                </h2>
+                            </div>
+                            <div class="pokemon-info__id">
+                                <span id="pokemon-id">
+                                    #001
+                                </span>
+                            </div>
+                            <img onclick="closeInfoCard()" id="close-info-card" class="close-info-card"
+                                src="./img/close.svg" alt="">
+                        </div>
+                        <div class="pokemon-info__container">
+                            <div class="pokemon-info__scroll-y">
+                                <nav class="sidebar__nav">
+                                    <ul class="sidebar__lists">
+                                        <li onclick="sidebarNav(0)" id="nav-info-0"
+                                            class="sidebar__list-item active">
+                                            <span class="sidebar__text">Info</span>
+                                        </li>
+                                        <li onclick="sidebarNav(1)" id="nav-info-1" class="sidebar__list-item">
+                                            <span class="sidebar__text">Stats</span>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="info-container">
+                                    <div id="info-0" style="transform: translateX(0);" class="info">
+                                        <div class="pokemon-info__pokedex-entry">
+                                            <h2 class="pokedex-entry__headline">Pokedex entry</h2>
+                                            <p id="pokemon-text" class="pokedex-entry__text">Obviously prefers hot
+                                                places. when it rains, steam is said
+                                                to
+                                                spout from the tip of its tail.
+                                            </p>
+                                        </div>
+                                        <div id="pokemon-type" class="pokemon-info__type p-tb bg-gray"></div>
+                                        <div id="pokemon-abilities" class="pokemon-info__abilities p-tb bg-gray"></div>
+                                        <div id="pokemon-height" class="pokemon-info__height p-tb bg-gray"></div>
+                                        <div id="pokemon-weight" class="pokemon-info__weight p-tb bg-gray"></div>
+                                    </div>
+                                    <div id="info-1" style="transform: translateX(100%);" class="stats">
+                                        <div id="stats" class="pokemon-info__stats"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Placeholder Pokemon info -->
+                    <div id="placeholder" class="pokemon-info placeholder">
+                        <div id="image-container" class="pokemon-info__image-container placeholder__image-container ">
+                            <img class="placeholder__image" src="img/turtok.png" alt="">
+                        </div>
+                        <div class="pokemon-info__description placeholder__description">
+                            <h3 class="headline-s">Select a Pokemon.</h3>
+                        </div>
+                    </div>
+                    <div id="loader-layer-info" class="loader-layer-info d-none">
+                        <div id="update-loader" class="update-loader">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+    </div>
+    <!-- Scroll to top -->
+    <div id="sroll-top" class="scroll-top"></div>
+    <div id="page-loader" class="page-loader">
+        <div class="update-loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h2 class="headline-xs dark-grey">Loading Pokemon data...</h2>
+    </div>
+</body>
+
+</html>
