@@ -7,8 +7,9 @@ let limit = 30;
 let offset = 0;
 let scrollLoad = true;
 
-
-// Fetch 30 Pokemon from the API
+/**
+ *  Fetch 30 Pokemon from the API
+ */
 async function getPokemons() {
     updateLoader();
     for (let i = startIndex; i < maxLimit; i++) {
@@ -19,7 +20,11 @@ async function getPokemons() {
 }
 
 
-// Push the current Pokemon to the array
+/**
+ * Push the current Pokemon to the array
+ * 
+ * @param {number} i 
+ */
 function pushPokemonToArray(i) {
     pokemon = {
         id: i + 1,
